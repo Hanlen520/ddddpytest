@@ -1,0 +1,18 @@
+-
+  casename: session0获取cookie_1
+  request:
+    url: "${base_url}/cookies"
+    method: GET
+  session: 0
+-
+  casename: session1获取cookie
+  request:
+    url: "${base_url}/cookies"
+    method: GET
+  session: 1
+-
+  casename: session0获取cookie_2
+  request:
+    url: "${base_url}/cookies"
+    method: GET
+  session: 0

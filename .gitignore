@@ -1,9 +1,10 @@
 *.pyc
 .pytest_cache
-log
-report
+logs
+reports
 .idea
 temp
-*.html
-*.json
-data
+*.log
+*.css
+*.js
+.benchmarks

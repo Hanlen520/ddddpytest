@@ -1,0 +1,15 @@
+-
+  casename: html响应
+  request:
+    url: ${base_url}/html
+    method: GET
+-
+  casename: png图片
+  request:
+    url: ${base_url}/image/png
+    method: GET
+-
+  casename: jpeg图片
+  request:
+    url: ${base_url}/image/jpeg
+    method: GET

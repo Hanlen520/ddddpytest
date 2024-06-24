@@ -1,0 +1,7 @@
+-
+  casename: 设置cookie
+  request:
+    url: ${base_url}/cookies/set
+    method: GET
+    params:
+      foo: bar

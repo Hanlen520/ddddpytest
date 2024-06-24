@@ -1,0 +1,51 @@
+-
+  casename: 相等断言
+  request:
+    url: "${base_url}/get"
+    method: GET
+    params:
+      key1: value1
+      key2: value2
+  extract:
+    request:
+      qkey1: 'key1": "(.*?)",0'
+      qkey2: "$..key2"
+    response:
+      skey1: "$..key1,0"
+      skey2: 'key2": "(.*?)"'
+  assertion:
+    equal:
+      -
+        expect: "${qkey1}"
+        actual: "${skey1}"
+      -
+        expect: "${qkey2}"
+        actual: "${skey2}"
+-
+  casename: 包含断言
+  request:
+    url: "${base_url}/get"
+    method: GET
+    params:
+      key: value
+  assertion:
+    contain:
+      -
+        expect: key
+        actual: response
+-
+  casename: 数据库断言
+  request:
+    url: "${base_url}/get"
+    method: GET
+    params:
+      key: "{{mock().name()}}"
+      name: 齐霞
+  extract:
+    response:
+      name: '$..name,0'
+  assertion:
+    equal:
+      -
+        expect: "{{sqlSelect(select * from user,name,debug/config/local.yaml,-1)}}"
+        actual: "${name}"
